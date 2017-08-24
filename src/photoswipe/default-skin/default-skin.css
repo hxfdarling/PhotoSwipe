@@ -21,6 +21,10 @@
 
  */
 
+.pswp {
+	z-index: 999999!important;
+}
+
 
 /* <button> css reset */
 

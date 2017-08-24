@@ -15,11 +15,11 @@ document.body.appendChild(pswpBox);
 /**
  *
  * @param {Number} index 初始展示图片索引
- * @param {Object} items 图片列表src,w,h,origin
+ * @param {Object} items 图片列表src,w,h,origin,msrc
  * @param {HTMLELement=} root 包含所有图片的跟节点
  * @param {Object=} params 配置参数，itemClass重要配置参数，包含图片的最小节点类名
  */
-export default function (index, items, root = document.body, params = {}) {
+export default function (index, items, root, params = {}) {
   let itemClass = params.itemClass || 'preview-img'
   let pswp
   let download = params.download || function (item) {
@@ -30,6 +30,7 @@ export default function (index, items, root = document.body, params = {}) {
     a.click();
     a.remove();
   }
+  delete params.download
   let options = Object.assign({
     index: index,
     galleryUID: ++UUID,
@@ -47,7 +48,7 @@ export default function (index, items, root = document.body, params = {}) {
       download(item)
     },
     getThumbBoundsFn(index) {
-      let thumbnail = items[index].el || root.querySelectorAll(`.${itemClass}`)[index] // find thumbnail
+      let thumbnail = items[index].el || root && root.querySelectorAll(`.${itemClass}`)[index] // find thumbnail
       if (!thumbnail) {
         return
       }
