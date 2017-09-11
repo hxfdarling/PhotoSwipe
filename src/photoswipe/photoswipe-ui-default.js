@@ -452,9 +452,6 @@ export default function PhotoSwipeUI_Default(pswp, framework) {
     option: 'rotateEl',
     onTap() {
       let item = pswp.currItem
-      if (!item._src) {
-        item._src = item.src
-      }
       if (!item.loaded) {
         return
       }
@@ -464,21 +461,14 @@ export default function PhotoSwipeUI_Default(pswp, framework) {
         rotate = 0
       }
       item.rotate = rotate
-      let image = new Image()
-      image.crossOrigin = "Anonymous"
-      image.src = item._src
-      image.onload = function () {
-        let w = item.w
-        item.w = item.h
-        item.h = w
-        item.src = rotateImage(image, rotate)
-
-        let index = pswp.getCurrentIndex()
-        Object.assign(pswp.items[index], item)
-        pswp.setContent(pswp.itemHolders[1], index)
-        pswp.updateCurrZoomItem()
-        framework.removeClass(pswp.template, 'pswp--zoomed-in');
-      }
+      let w = item.w
+      item.w = item.h
+      item.h = w
+      let index = pswp.getCurrentIndex()
+      Object.assign(pswp.items[index], item)
+      pswp.setContent(pswp.itemHolders[1], index)
+      pswp.updateCurrZoomItem()
+      framework.removeClass(pswp.template, 'pswp--zoomed-in');
     }
   },
   {

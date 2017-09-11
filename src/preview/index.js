@@ -1,7 +1,7 @@
 import '../photoswipe/default-skin/default-skin.css'
-import 'photoswipe/dist/photoswipe.css'
+import '../photoswipe/photoswipe.css'
 import UI from '../photoswipe/photoswipe-ui-default.js'
-import PhotoSwipe from 'photoswipe/dist/photoswipe.js'
+import PhotoSwipe from '../photoswipe/photoswipe.js'
 
 import html from './index.html';
 

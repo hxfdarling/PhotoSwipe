@@ -3,3 +3,4 @@ cache/
 dist/
 .happypack/
 coverage/
+**/.DS_Store
