@@ -2729,7 +2729,6 @@ var PhotoSwipe = function (template, UiClass, items, options) {
       // minimum pan position
       bounds.min.x = (realPanElementW > _tempPanAreaSize.x) ? 0 : bounds.center.x;
       bounds.min.y = (realPanElementH > _tempPanAreaSize.y) ? item.vGap.top : bounds.center.y;
-      console.log(item.zoomLevel)
     },
     _calculateItemSize = function (item, viewportSize, zoomLevel) {
 
