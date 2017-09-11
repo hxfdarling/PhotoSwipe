@@ -1,6 +1,6 @@
-# moa-preview
+# PhotoSwipe
 
-This imate preivew plugin base on photoswipe
+This plugin base on photoswipe
 
 ## Support
 
